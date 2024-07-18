@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CoachingTop</string>
+    <string name="bottom_navigation_home">"Accueil"</string>
+    <string name="bottom_navigation_video">"Video"</string>
+    <string name="bottom_navigation_planning">"Planning"</string>
+    <string name="bottom_navigation_resultat">"Resultat"</string>
+    <string name="bottom_navigation_parametre">"Parametre"</string>
 </resources>
