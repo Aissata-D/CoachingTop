@@ -17,7 +17,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.PlayArrow
@@ -30,7 +29,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -40,7 +38,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoachingTopTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(),
-                    bottomBar = { SootheBottomNavigation() },
+                    bottomBar = { BottomNavigation() },
                     topBar = {
                         TopAppBar(
                             colors = TopAppBarDefaults.topAppBarColors(
@@ -65,7 +63,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
+private fun BottomNavigation(modifier: Modifier = Modifier) {
     NavigationBar(
      //   containerColor = MaterialTheme.colorScheme.surfaceVariant,
         modifier = modifier
@@ -169,6 +167,6 @@ fun GreetingPreview() {
 @Composable
 fun TestNavigation(){
     CoachingTopTheme {
-        SootheBottomNavigation()
+        BottomNavigation()
     }
 }
