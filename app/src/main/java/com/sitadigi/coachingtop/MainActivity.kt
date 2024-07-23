@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoachingTopTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(),
-                    bottomBar = { bottomNavigationClass.BottomNavigation() },
+                    bottomBar = {  BottomNavigationBar()},//  bottomNavigationClass.BottomNavigation() },
                     topBar = {
                         TopAppBar(
                             colors = TopAppBarDefaults.topAppBarColors(
@@ -53,7 +53,8 @@ class MainActivity : ComponentActivity() {
                                 Text("Small Top App Bar")
                             }
                         )
-                    },)
+                    }
+                )
                 { innerPadding ->
                     Greeting(
                         name = "Android",
