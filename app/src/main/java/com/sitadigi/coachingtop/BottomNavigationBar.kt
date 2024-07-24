@@ -1,6 +1,9 @@
 package com.sitadigi.coachingtop
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,7 +23,11 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
@@ -28,7 +35,7 @@ import androidx.navigation.compose.composable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BottomNavigationBar() {
+fun BottomNavigationBar(modifier: Modifier = Modifier) {
 //initializing the default selected item
     var navigationSelectedItem by remember {
         mutableStateOf(0)
@@ -41,7 +48,20 @@ fun BottomNavigationBar() {
 
 //scaffold to hold our bottom navigation Bar
     Scaffold(
-        modifier = Modifier.fillMaxWidth(),
+       modifier = Modifier.fillMaxWidth()
+        .background(color = Color(0xFF726FF4).copy(0.62f)),
+        topBar = {
+            TopAppBar(
+                modifier = Modifier.border(1.dp, color = Color.Black),
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF726FF4),//MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),
+                title = {
+                    Text("Small Top App Bar")
+                }
+            )
+        },
         bottomBar = {
             NavigationBar {
                 //getting the list of bottom navigation items for our data class
@@ -89,7 +109,8 @@ fun BottomNavigationBar() {
         NavHost(
             navController = navController,
             startDestination = Screens.Home.route,
-            modifier = Modifier.padding(paddingValues = paddingValues)) {
+            modifier = Modifier.padding(paddingValues = paddingValues)
+            ) {
 
             composable(Screens.Home.route) {
                 HomeScreen(

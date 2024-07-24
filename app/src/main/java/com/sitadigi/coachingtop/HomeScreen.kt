@@ -2,6 +2,7 @@ package com.sitadigi.coachingtop
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -33,17 +35,19 @@ import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
     @Composable
     fun HomeScreen(navController: NavController) {
         CoachingTopTheme {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
+            Surface( contentColor = Color(0xFF726FF4),
+               modifier =  Modifier.background(color = Color(0xFF726FF4).copy(0.62f))
+               // modifier = Modifier.fillMaxSize(),
+               // color = MaterialTheme.colorScheme.background
             ) {
-                Column {
+                Column (modifier = Modifier.background(color = Color(0xFF726FF4).copy(0.62f))){
 
 
                     Row(
                         modifier = Modifier
+                           // .background(color = Color(0xFF726FF4).copy(0.62f))
                             .fillMaxWidth()
-                            .border(8.dp, color = Color.Gray)
+                          //  .border(8.dp, color = Color.Gray)
                             .padding(16.dp)
                     ) {
                         Image(
@@ -56,15 +60,17 @@ import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
                                 .border(2.dp, Color.Gray, CircleShape)
                         )
                         Column(Modifier.padding(8.dp)) {
-                            Text("Name: Aissata")
-                            Text("Description: coaché")
+                            Text("Name: Aissata", color = Color.Black)
+                            Text("Description: coaché", color = Color.White)
                         }
                     }
                     Row(
                         modifier = Modifier
+                            .background(color = Color.White)
                             .fillMaxWidth()
                             .fillMaxHeight()
-                            .border(8.dp, color = Color.Red)
+                            .border(8.dp, color = Color.Red,shape = RoundedCornerShape(48.dp,48.dp))
+
                             .padding(16.dp)
                     ) {
 

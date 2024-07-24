@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -28,7 +29,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.sitadigi.coachingtop.BottomNavigationClass
 
 class MainActivity : ComponentActivity() {
@@ -41,8 +45,10 @@ class MainActivity : ComponentActivity() {
         val bottomNavigationClass  = BottomNavigationClass()
         setContent {
             CoachingTopTheme {
-                Scaffold(modifier = Modifier.fillMaxSize(),
-                    bottomBar = {  BottomNavigationBar()},//  bottomNavigationClass.BottomNavigation() },
+                Scaffold(modifier = Modifier.fillMaxSize()
+                    .background(color = Color(0xFF726FF4).copy(0.62f)),
+
+                  /*  bottomBar = {  BottomNavigationBar()},//  bottomNavigationClass.BottomNavigation() },
                     topBar = {
                         TopAppBar(
                             colors = TopAppBarDefaults.topAppBarColors(
@@ -53,14 +59,15 @@ class MainActivity : ComponentActivity() {
                                 Text("Small Top App Bar")
                             }
                         )
-                    }
+                    }*/
                 )
+
                 { innerPadding ->
-                    Greeting(
+                    BottomNavigationBar(modifier = Modifier.padding(innerPadding))
+                   /* Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
-                    )
-
+                    )*/
                 }
             }
         }
