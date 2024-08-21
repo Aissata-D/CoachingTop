@@ -1,4 +1,4 @@
-package com.sitadigi.coachingtop
+package com.sitadigi.coachingtop.view
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.sitadigi.coachingtop.R
 
 public class BottomNavigationClass {
 

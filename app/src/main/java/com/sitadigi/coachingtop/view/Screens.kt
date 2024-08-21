@@ -1,4 +1,4 @@
-package com.sitadigi.coachingtop
+package com.sitadigi.coachingtop.view
 
 sealed class Screens(val route: String) {
 

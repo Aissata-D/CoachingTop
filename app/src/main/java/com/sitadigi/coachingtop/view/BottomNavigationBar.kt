@@ -1,11 +1,7 @@
-package com.sitadigi.coachingtop
+package com.sitadigi.coachingtop.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -22,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -65,7 +60,7 @@ fun BottomNavigationBar(modifier: Modifier = Modifier) {
         bottomBar = {
             NavigationBar {
                 //getting the list of bottom navigation items for our data class
-                BottomNavigationItem().bottomNavigationItems().forEachIndexed {index,navigationItem ->
+                BottomNavigationItem().bottomNavigationItems().forEachIndexed { index, navigationItem ->
 
                     //iterating all items with their respective indexes
                     NavigationBarItem(
@@ -135,7 +130,7 @@ fun BottomNavigationBar(modifier: Modifier = Modifier) {
                 ResultatScreen(
                     navController )
             }
-            composable(Screens.Setting .route) {
+            composable(Screens.Setting.route) {
                 //call our composable screens here
                 SettingScreen(
                     navController
