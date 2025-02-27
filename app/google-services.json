@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "773599462424",
+    "firebase_url": "https://coachingtop-dbe8e-default-rtdb.firebaseio.com",
+    "project_id": "coachingtop-dbe8e",
+    "storage_bucket": "coachingtop-dbe8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773599462424:android:df6b4e9c973c4349346f6d",
+        "android_client_info": {
+          "package_name": "com.sitadigi.coachingtop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDun-BXpbG0AvoUMMQV7FDy2a1iExx0C-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -139,4 +139,3 @@ fun BottomNavigationBar(modifier: Modifier = Modifier) {
         }
     }
 }
-

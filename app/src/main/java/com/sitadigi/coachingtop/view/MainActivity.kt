@@ -1,10 +1,13 @@
 package com.sitadigi.coachingtop.view
 
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.NonNull
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -18,6 +21,11 @@ import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 //import androidx.compose.material.icons.filled.Spa
 import androidx.compose.ui.graphics.Color
+import com.google.android.gms.tasks.Task
+import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 
 class MainActivity : ComponentActivity() {
 
@@ -27,6 +35,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val bottomNavigationClass  = BottomNavigationClass()
+        FirebaseApp.initializeApp(this)
+
+
+        addData()
+        getData()
+
+
         setContent {
             CoachingTopTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()
@@ -57,6 +72,60 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+fun getData(){
+    val db = Firebase.firestore
+    db.collection("users")
+        .get()
+        .addOnSuccessListener { result ->
+            for (document in result) {
+                Log.e(TAG, "${document.id} => ${document.data}")
+            }
+        }
+        .addOnFailureListener { exception ->
+            Log.e(TAG, "Error getting documents.", exception)
+        }
+}
+  fun addData() {
+
+      //  val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+      // val dbUsers: CollectionReference = dB.collection("Users")
+      // Write a message to the database
+      val db= FirebaseFirestore.getInstance()
+        //  db.collection("users")
+
+     // val db = Firebase.firestore
+      // Create a new user with a first and last name
+      val user = hashMapOf(
+          "first" to "Ada 1",
+          "last" to "Lovelace 1",
+          "born" to 1816,
+      )
+
+// Add a new document with a generated ID
+
+      db.collection("users")
+          .add(user)
+          /*  .addOnCompleteListener(this,documentReference )
+        {Log.d("TAG"," complet Ajout")}
+
+
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull (Task<Void>) task) {
+                    if (task.isSuccessful()) {
+                        Log.d("TAG", "User profile updated.");
+                    }
+                }
+            })*/
+
+          .addOnSuccessListener { documentReference ->
+              Log.e(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+          }
+          .addOnFailureListener { e ->
+              Log.e(TAG, "Error adding document", e)
+          }
+
+  }
 
 
 

@@ -38,8 +38,6 @@ fun PlanningScreen(navController: NavController) {
         Surface {
             Column(modifier = Modifier.background(color = Color(0xFF726FF4).copy(0.62f)))
             {
-
-
                 Row(
                     modifier = Modifier
                         // .background(color = Color(0xFF726FF4).copy(0.62f))
