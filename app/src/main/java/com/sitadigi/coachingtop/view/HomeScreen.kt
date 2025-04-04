@@ -1,18 +1,22 @@
 package com.sitadigi.coachingtop.view
 
 
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,13 +29,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
+import com.sitadigi.coachingtop.viewmodel.MainActivityViewModel
 
 
-
-    @Composable
+@Composable
     fun HomeScreen(navController: NavController) {
         CoachingTopTheme {
             Surface {
+
                 Column (modifier = Modifier.background(color = Color(0xFF726FF4).copy(0.62f)))
                 {
 
@@ -64,13 +69,16 @@ import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
                     ElevatedCard(elevation = CardDefaults.cardElevation(
                                 defaultElevation = 6.dp),
                             modifier = Modifier
-                               // .fillMaxWidth()
+                                // .fillMaxWidth()
                                 .fillMaxSize()
-                                .padding(top = 48.dp, bottom= 8.dp, start = 8.dp, end = 8.dp)
+                                .padding(top = 48.dp, bottom = 8.dp, start = 8.dp, end = 8.dp)
                                 //.border(48.dp, color = Color.Black)
 
 
                         ) {
+                        LazyColumn {
+
+                        }
                             Text(
                                 text = "Elevated",
                                 modifier = Modifier

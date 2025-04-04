@@ -5,11 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.sitadigi.coachingtop.dao.CitationDao
-import com.sitadigi.coachingtop.dao.ResultDao
-import com.sitadigi.coachingtop.dao.TaskListDao
-import com.sitadigi.coachingtop.dao.UserDao
-import com.sitadigi.coachingtop.dao.VideoDao
+import com.sitadigi.coachingtop.data.dao.CitationDao
+import com.sitadigi.coachingtop.data.dao.ResultDao
+import com.sitadigi.coachingtop.data.dao.TaskListDao
+import com.sitadigi.coachingtop.data.dao.UserDao
+import com.sitadigi.coachingtop.data.dao.VideoDao
 import com.sitadigi.coachingtop.models.Citation
 import com.sitadigi.coachingtop.models.Result
 import com.sitadigi.coachingtop.models.TaskList

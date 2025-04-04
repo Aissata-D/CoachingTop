@@ -1,4 +1,4 @@
-package com.sitadigi.coachingtop.dao
+package com.sitadigi.coachingtop.data.dao
 
 import android.database.Cursor
 import androidx.lifecycle.LiveData

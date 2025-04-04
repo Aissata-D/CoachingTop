@@ -19,10 +19,13 @@
       <SelectionState runConfigName="UserDaoTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="updateUserIntoDatabaseSuccessfully()">
+      <SelectionState runConfigName="deleteUserIntoDatabaseSuccessfully()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="deleteUserIntoDatabaseSuccessfully()">
+      <SelectionState runConfigName="testGetUsersShouldReturnNonEmptyList()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="testGetUsersShouldReturnEmptyList()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

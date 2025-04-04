@@ -3,9 +3,11 @@ package com.sitadigi.coachingtop
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import app.cash.turbine.test
 import com.sitadigi.coachingtop.database.CoachingTopDatabase
 import com.sitadigi.coachingtop.models.User
 import com.sitadigi.coachingtop.models.Video
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -13,6 +15,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.*
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 
 
 @RunWith(AndroidJUnit4::class)// AndroidJUnit4 est le Runner utilisé pour notre test instrumenté  ici--> il est souvent utilisé par defaut
@@ -86,6 +89,42 @@ class UserDaoTest {
             //Verify
             assertEquals("Inserted and retrieved user must be equal", null, deletedUser)
         }
+
+    //Tester le Flow avec la librairie turbine
+    //Cette bibliothèque vous permet d’utiliser la méthode d’extensiontest sur leFlowà collecter qu’il est alors possible de manipuler dans une expression lambda.
+    // LeFlowpeut être récupéré à l’aide de la méthodeawaitItem. Une fois les vérifications faites, vous pouvez utiliser la méthode cancelpour suspendre la collecte et terminer les tests.
+    @Test
+    fun testGetUsersShouldReturnEmptyList()= runTest{
+        database.userDao().getAllUsers().test {
+            val users = awaitItem()
+            assertTrue("Retrieved list must be empty", users.isEmpty())
+            cancel()
+        }
+
+    }
+    @Test
+    fun testGetUsersShouldReturnNonEmptyList()= runTest{
+        database.videoDao().createVideo(videoTest)
+        val user1 = User(1, "Aissata", "Je suis courageuse 1", "image_path", 1)
+        val user2 = User(2, "Souare", "Je suis perceverante 2", "image_path", 1)
+        val users = listOf(user1,user2)
+
+        users.forEach {
+            database.userDao().createUser(it)
+        }
+
+        //When
+        database.userDao().getAllUsers().test {
+            //then
+            val results = awaitItem()
+            assertEquals("inserted and retrieved list must have the same size"
+                , results.size, users.size)
+            cancel()
+        }
+
+
+
+    }
 
 
     /*

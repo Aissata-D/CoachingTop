@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.annotation.NonNull
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,12 +22,16 @@ import com.sitadigi.coachingtop.ui.theme.CoachingTopTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 //import androidx.compose.material.icons.filled.Spa
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
+import com.sitadigi.coachingtop.viewmodel.MainActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
 
@@ -34,6 +39,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val mainActivityViewModel: MainActivityViewModel by viewModels() // Création d'une instance de ViewModel par l'extension "by viewModel()"
+
+
         val bottomNavigationClass  = BottomNavigationClass()
         FirebaseApp.initializeApp(this)
 

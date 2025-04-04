@@ -86,6 +86,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.turbine)
 
     //ROOM
     implementation(libs.androidx.room.runtime)
@@ -93,6 +94,9 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room (before room version 2.7.0)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
+    //Hilt
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
     //VIEW MODEL & LIVE DATA
   //  implementation (libs.androidx.lifecycle.extensions)
 
